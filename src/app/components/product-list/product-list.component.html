@@ -1,1 +1,11 @@
-<p>product-list works!</p>
+<div class="product-container">
+<div class = "product-index" *ngFor="let product of products">
+    <div class="product-image"><img src="{{product.url}}"></div>
+    <p>{{product.name}}</p>
+    <p>{{product.price}}</p>
+    <select name="count" id="item-count">
+        <option *ngFor = "let i of NumberOfItems" value="{{NumberOfItems[i]}}">{{NumberOfItems[i]}}</option>
+    </select>
+    <button>Add to cart</button>
+</div>
+</div>

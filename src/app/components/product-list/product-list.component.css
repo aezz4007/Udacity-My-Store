@@ -1,12 +1,37 @@
 .product-index {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   max-width: 1024px;
   margin-bottom: 64px;
+  align-items: center;
 }
 
 .product-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+img {
+  width: 350px;
+  height: 400px;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 410px;
+  border: darkgray 1px solid;
+}
+
+button {
+  background-color: #33B5E5;
+  color: white;
+  margin: 10px;
+  padding: 5px;
 }
