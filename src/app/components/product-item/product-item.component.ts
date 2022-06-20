@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-product-item',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() product: Product;
+  NumberOfItems: Array<number> = [];
+  constructor() { 
+    this.product = {
+      id: 0,
+      name: '',
+      price: 0,
+      url: 'https://www.example.com',
+      description: ''
+    }
+  }
 
   ngOnInit(): void {
+    this.NumberOfItems = Array.from(Array(11).keys());
   }
 
 }

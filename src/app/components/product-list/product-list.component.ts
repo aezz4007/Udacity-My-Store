@@ -8,11 +8,9 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  NumberOfItems: Array<number> = [];
   constructor() { }
     
   ngOnInit(): void {
-    this.NumberOfItems = Array.from(Array(11).keys());
     this.products = [
       {
         "id": 1,
