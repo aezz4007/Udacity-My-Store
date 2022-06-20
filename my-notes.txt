@@ -1,0 +1,13 @@
+My name is Amira Ezzeldin. I'm studying Angular.
+This page will include all my notes during the building of my-store application.
+The project is a part of Angular Nanodegree from Udacity. It's a scholarship provided by EgyFwd.
+
+First, I created an angular app. I installed eslint, as recommended in the classroom.
+I made some changes to the karma.conf.js file, because eslint showed some errors.
+I'm not sure if I'm going to use Jasmine, or unit testing or so.
+I'll just make sure that my project is working properly.
+I also installed the Angular material. I think I might use one or two of their ready made components.
+I installed prettier and ran it over all the files.
+
+I'll walk through this project with the classroom instructions.
+I'll apply the instructions to my-store project.
