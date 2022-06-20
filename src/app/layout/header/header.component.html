@@ -1,1 +1,5 @@
-<p>header works!</p>
+<div class="header">
+    <h1>{{ title }}</h1>
+        <span *ngFor = "let nav of navBar; let isLast=last"><a href="{{ nav.navURL }}">{{ nav.navName }}{{isLast ? '' : ' | '}}</a>
+         </span>
+</div>
