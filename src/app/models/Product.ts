@@ -6,6 +6,7 @@ export class Product {
     price: number;
     url: SafeUrl;
     description: string;
+    addedItem?: string;
 
     constructor() {
         this.id = 0;

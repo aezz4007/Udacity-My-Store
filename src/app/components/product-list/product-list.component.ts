@@ -8,7 +8,8 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  constructor() { }
+  constructor() {
+   }
     
   ngOnInit(): void {
     this.products = [
@@ -56,5 +57,6 @@ export class ProductListComponent implements OnInit {
       }
     ]
   }
+ 
 
 }
