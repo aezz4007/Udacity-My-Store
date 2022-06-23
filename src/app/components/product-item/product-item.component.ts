@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { count } from 'rxjs';
 import { AsyncAction } from 'rxjs/internal/scheduler/AsyncAction';
@@ -11,6 +11,7 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
+  @Output() added = new EventEmitter;
   NumberOfItems: Array<number> = [];
   count: string;
   constructor() {
@@ -36,7 +37,7 @@ export class ProductItemComponent implements OnInit {
   addToCart() {
     if (this.count !==''){
       this.product.addedItem = this.count;
-      alert(`${this.product.addedItem} ${this.product.name} were added to cart`);  
+      this.added.emit(this.product);
     }
     else {
       alert(`Please select the number of ${this.product.name} you want to purchase`)

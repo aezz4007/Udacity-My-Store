@@ -58,5 +58,7 @@ export class ProductListComponent implements OnInit {
     ]
   }
  
-
+addedItems(product: Product): void {
+  alert(`${product.addedItem} ${product.name} were added to cart`);  
+}
 }
