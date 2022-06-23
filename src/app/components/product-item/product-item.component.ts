@@ -34,8 +34,13 @@ export class ProductItemComponent implements OnInit {
     }
 
   addToCart() {
-    this.product.addedItem = this.count;
-    alert(this.product.addedItem + ' items were added to cart');
+    if (this.count !==''){
+      this.product.addedItem = this.count;
+      alert(`${this.product.addedItem} ${this.product.name} were added to cart`);  
+    }
+    else {
+      alert(`Please select the number of ${this.product.name} you want to purchase`)
+    }
   }
 }
 
