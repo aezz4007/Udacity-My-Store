@@ -1,1 +1,18 @@
-<p>product-item-detail works!</p>
+<div class="product-container">
+    <div>
+      <img class="product-image" src="{{ product.url }}"
+      />
+    </div>
+    <p>{{ product.name  }}</p>
+   <p>{{ product.price }}</p>
+    <p>{{ product.description }} </p>
+
+    <select class="select-input" name="count" (change)="changeCount($event)">
+      <option *ngFor="let i of NumberOfItems" value="{{ NumberOfItems[i] }}">
+        {{ NumberOfItems[i] }}
+      </option>
+    </select>
+    <br />
+    <button  (click)="addToCart()">Add to cart</button>
+  </div>
+  

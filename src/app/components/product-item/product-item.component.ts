@@ -9,9 +9,10 @@ import { Product } from 'src/app/models/Product';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() added = new EventEmitter();
-  NumberOfItems: Array<number> = [];
+  NumberOfItems: Array<number>;
   count: string;
   constructor() {
+    this.NumberOfItems = [];
     this.count = '';
     this.product = {
       id: 0,
