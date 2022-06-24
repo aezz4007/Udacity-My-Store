@@ -1,10 +1,16 @@
 <div class="product-container">
-<div><a routerLink="/products/{{product.id}}"><img class="product-image" src="{{product.url}}"></a></div>
-<p>{{product.name}}</p>
-<p>{{product.price}}</p>
-<select class="select-input" name="count" (change) = "changeCount($event)">
-    <option *ngFor = "let i of NumberOfItems" value="{{NumberOfItems[i]}}">{{NumberOfItems[i]}}</option>
-</select>
-<br>
-<button (click)="addToCart()">Add to cart</button>
+  <div>
+    <a routerLink="/products/{{ product.id }}"
+      ><img class="product-image" src="{{ product.url }}"
+    /></a>
+  </div>
+  <p>{{ product.name }}</p>
+  <p>{{ product.price }}</p>
+  <select class="select-input" name="count" (change)="changeCount($event)">
+    <option *ngFor="let i of NumberOfItems" value="{{ NumberOfItems[i] }}">
+      {{ NumberOfItems[i] }}
+    </option>
+  </select>
+  <br />
+  <button (click)="addToCart()">Add to cart</button>
 </div>

@@ -11,3 +11,8 @@ I installed prettier and ran it over all the files.
 
 I'll walk through this project with the classroom instructions.
 I'll apply the instructions to my-store project.
+
+I've gone so far coding along with the course, but in my own project. 
+I'm done with the home page setup. I've created the components, routing and services.
+Now my data is not in the component anymore. It's in a service. Still, it's not coming fro the server yet.
+

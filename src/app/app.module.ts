@@ -12,7 +12,15 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, CartComponent, ConfirmationComponent, ProductItemComponent, ProductItemDetailComponent, ProductListComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    CartComponent,
+    ConfirmationComponent,
+    ProductItemComponent,
+    ProductItemDetailComponent,
+    ProductListComponent,
+    HeaderComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]

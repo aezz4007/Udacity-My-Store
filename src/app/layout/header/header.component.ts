@@ -7,21 +7,22 @@ import { Nav } from 'src/app/models/Nav';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: string = "Product List";
-  navBar: Nav[] = [];
+  title = 'Product List';
+  navBar: Nav[];
 
-  constructor() { }
+  constructor() {
+    this.navBar = [];
+  }
 
   ngOnInit(): void {
-
     this.navBar = [
       {
-        navName: "Product List",
-        navURL: ""
+        navName: 'Product List',
+        navURL: ''
       },
       {
-        navName: "Cart",
-        navURL: "cart"
+        navName: 'Cart',
+        navURL: 'cart'
       }
     ];
   }
