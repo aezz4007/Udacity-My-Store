@@ -1,5 +1,5 @@
 <div class="product-container">
-<div><a href="/products/{{product.id}}"><img class="product-image" src="{{product.url}}"></a></div>
+<div><a routerLink="/products/{{product.id}}"><img class="product-image" src="{{product.url}}"></a></div>
 <p>{{product.name}}</p>
 <p>{{product.price}}</p>
 <select class="select-input" name="count" (change) = "changeCount($event)">
