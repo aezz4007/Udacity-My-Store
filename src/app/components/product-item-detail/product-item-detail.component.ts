@@ -32,8 +32,15 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products=this.productService.getProducts(); 
-    this.NumberOfItems = Array.from(Array(11).keys());
+this.productService.getProducts().subscribe(res=>{
+      for(let i = 0; i<res.length;i++) {
+        const product = res[i];
+        product["addedItem"] = '';
+      }
+      this.products=res;
+      console.log('P' + this.products);
+    });    this.NumberOfItems = Array.from(Array(11).keys());
+    console.log('products' + this.products);
     this.product = 
       {
         id: this.products[this.currentUrl-1].id,

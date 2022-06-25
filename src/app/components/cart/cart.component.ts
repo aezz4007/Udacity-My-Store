@@ -32,9 +32,14 @@ export class CartComponent implements OnInit {
     this.count = (<HTMLSelectElement>e.target).value;
       let myIndex = this.cartList.findIndex(i=>i.id === id);
     this.cartService.updateProduct(myIndex, this.count);
+    
     if (this.count === '0') {
       this.cartList = this.cartList.filter(product=>product.id !==id);
+       this.cartList = [...new Map(this.cartList.map(v => [v.id, v])).values()]
       alert('Removed from cart');
     }
+
+
+   
   }
 }

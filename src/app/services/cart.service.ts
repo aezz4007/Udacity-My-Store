@@ -13,8 +13,13 @@ export class CartService {
     return this.productList;
 }
 addToCart(product: Product) {
-    this.productList.push(product);
-    return this.productList;
+    if (product.addedItem!=='0') {
+      this.productList.push(product);
+      return this.productList;
+    } else {
+      return this.productList;
+    }
+    
 }
 clearCart() {
     this.productList=[];
