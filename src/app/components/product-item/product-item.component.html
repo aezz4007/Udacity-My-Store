@@ -5,12 +5,12 @@
     /></a>
   </div>
   <p>{{ product.name }}</p>
-  <p>{{ product.price }}</p>
+  <p>${{ product.price }}</p>
   <select class="select-input" name="count" (change)="changeCount($event)">
     <option *ngFor="let i of NumberOfItems" value="{{ NumberOfItems[i] }}">
       {{ NumberOfItems[i] }}
     </option>
   </select>
   <br />
-  <button (click)="addToCart()">Add to cart</button>
+  <button (click)="addToCart(product)">Add to cart</button>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -15,7 +16,7 @@ export class ProductItemDetailComponent implements OnInit {
   NumberOfItems: Array<number>;
   count: string;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private cartService: CartService) {
     this.products = [];
     this.product = {
       id: 0,
@@ -48,9 +49,12 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   addToCart() {
+    this.cartService.addToCart(this.product);
     if (this.count !== '') {
       this.product.addedItem = this.count;
-      this.productService.updateProduct(this.product.id-1, this.product.addedItem);
+      this.cartService.updateProduct(this.product.id-1, this.product.addedItem);
+      alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
+
         } else {
       alert(
         `Please select the number of items "${this.product.name}" you want to purchase`

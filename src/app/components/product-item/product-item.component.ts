@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -11,7 +12,7 @@ export class ProductItemComponent implements OnInit {
   @Output() added = new EventEmitter();
   NumberOfItems: Array<number>;
   count: string;
-  constructor() {
+  constructor(private cartService: CartService) {
     this.NumberOfItems = [];
     this.count = '';
     this.product = {
@@ -32,10 +33,11 @@ export class ProductItemComponent implements OnInit {
     this.count = (<HTMLSelectElement>e.target).value;
   }
 
-  addToCart() {
+  addToCart(product: Product) {
     if (this.count !== '') {
       this.product.addedItem = this.count;
       this.added.emit(this.product);
+      this.cartService.addToCart(this.product);
     } else {
       alert(
         `Please select the number of items "${this.product.name}" you want to purchase`

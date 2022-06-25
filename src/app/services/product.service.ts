@@ -56,19 +56,4 @@ export class ProductService {
   getProducts() {
     return this.products;
   }
-
-  addToProducts(product: Product) {
-    this.products.push(product);
-    return this.products;
-  }
-
-  clearProducts() {
-    this.products = [];
-    return this.products;
-  }
-
-  updateProduct(id: number, added: string) {
-    this.products[id].addedItem = added;
-    alert(`${this.products[id].addedItem} items of "${this.products[id].name}" were added to cart`);
-  }
 }

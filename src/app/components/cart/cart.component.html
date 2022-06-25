@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<div>
+    <div *ngFor="let product of cartList">
+      <img src="{{product.url}}" />
+      <p>{{product.name}}</p>
+      <p>${{product.price}}</p>
+      <p>Amount:</p>
+      <input type="number" name="added" min="0" max="10" value="{{product.addedItem}}" (change)="changeCount($event, product.id)">
+
+    </div>
+</div>
+

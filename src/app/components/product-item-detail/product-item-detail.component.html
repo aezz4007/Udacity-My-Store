@@ -5,7 +5,7 @@
     </div>
     <div class="detail-item">
     <p>{{ product.name  }}</p>
-   <p>{{ product.price }}</p>
+   <p>${{ product.price }}</p>
     <p>{{ product.description }} </p>
 
     <select class="select-input" name="count" (change)="changeCount($event)">
