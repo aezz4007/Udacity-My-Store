@@ -5,8 +5,9 @@
       <p>{{product.name}}</p>
       <p>${{product.price}}</p>
       <p>Amount:</p>
-      <input type="number" name="added" min="0" max="10" value="{{product.addedItem}}" (change)="changeCount($event, product.id)">
-
+      <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}" (change)="changeCount($event, product.id)">
+      <br>
+      <button (click)="removeProduct(product.id)">Remove from cart</button>
     </div>
 </div>
 

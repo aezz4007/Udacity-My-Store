@@ -38,17 +38,10 @@ this.productService.getProducts().subscribe(res=>{
         product["addedItem"] = '';
       }
       this.products=res;
-      console.log('P' + this.products);
-    });    this.NumberOfItems = Array.from(Array(11).keys());
-    console.log('products' + this.products);
-    this.product = 
-      {
-        id: this.products[this.currentUrl-1].id,
-        name: this.products[this.currentUrl-1].name,
-        price: this.products[this.currentUrl-1].price,
-        url: this.products[this.currentUrl-1].url,
-        description: this.products[this.currentUrl-1].description
-      }
+      this.product = this.products[this.currentUrl-1];
+    });    
+    this.NumberOfItems = Array.from(Array(11).keys());
+     
     
   }
   changeCount(e: Event) {
