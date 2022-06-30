@@ -6,7 +6,7 @@ export class Product {
   price: number;
   url: SafeUrl;
   description: string;
-  addedItem?: string;
+  addedItem: number;
 
   constructor() {
     this.id = 0;
@@ -14,5 +14,6 @@ export class Product {
     this.price = 0;
     this.url = 'https://www.example.com';
     this.description = '';
+    this.addedItem = 0;
   }
 }
