@@ -13,10 +13,7 @@ export class ProductItemDetailComponent implements OnInit {
   product: Product;
   currentUrl: number = parseInt(window.location.href.substring(window.location.href.lastIndexOf('/')+1));
 
-  NumberOfItems: Array<number>;
-  count: number;
-
-  constructor(private productService: ProductService, private cartService: CartService) {
+    constructor(private productService: ProductService, private cartService: CartService) {
     this.products = [];
     this.product = {
       id: 0,
@@ -27,8 +24,7 @@ export class ProductItemDetailComponent implements OnInit {
       addedItem: 0
     };
 
-    this.NumberOfItems = [];
-    this.count = 0;
+   
   }
 
   ngOnInit(): void {
@@ -40,26 +36,17 @@ this.productService.getProducts().subscribe(res=>{
       this.products=res;
       this.product = this.products[this.currentUrl-1];
     });    
-    this.NumberOfItems = Array.from(Array(11).keys());
-     
-    
   }
-  changeCount(e: Event) {
-    this.count = parseInt((<HTMLSelectElement>e.target).value);
-  }
-
-  addToCart() {
-    this.cartService.addToCart(this.product);
-    if (this.count !== 0) {
-      this.product.addedItem = this.count;
-      this.cartService.updateProduct(this.product.id-1, this.product.addedItem);
+    addToCart(): void {
+    if (this.product.addedItem === 0) {
+      alert(        `Please select the number of items "${this.product.name}" you want to purchase`
+      )
+    } else {
+      this.cartService.addToCart(this.product);
       alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
-
-        } else {
-      alert(
-        `Please select the number of items "${this.product.name}" you want to purchase`
-      );
-  }
+    }
+    }
+   
   }
 
-}
+

@@ -50,16 +50,15 @@ export class CartComponent implements OnInit {
   
    removeProduct(id: number) {
       this.cartList = this.cartService.removeFromCart(id);
-      alert('Removed from cart');
       return this.cartList;
-      
   }
-btnClick() {
-  this.userData.id=0;
-  this.userData.userName=''
- this.userData.userAddress = '';
- this.userData.cardNumber='';
-   this.router.navigateByUrl('/confirmation');
+ onSubmit(): void {
+  // if(this.total !==0) {
+    
+    this.router.navigateByUrl('/confirmation');
+  // } else {
+  //   alert('You haven\'t selected any item to buy');
+  // }
 }
 
 }

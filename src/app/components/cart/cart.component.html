@@ -7,22 +7,55 @@
     <p>${{product.price}}</p>
     <p>Amount:</p>
     <form>
-    <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}"
-      [(ngModel)]="product.addedItem">
-    <br>
-    <button (click)="removeProduct(product.id)">Remove from cart</button>
+      <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}" [(ngModel)]="product.addedItem">
+      <br>
+      <button type="reset" (click)="removeProduct(product.id)">Remove from cart</button>
     </form>
   </div>
-    <form>
-      <h2 name="total">Total: {{this.total}}</h2>
-    </form>
+  <h2 name="total">Total: {{this.total}}</h2>
 </div>
 <div>
-  <form>
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
     <h3>Please enter your information:</h3>
-    <input type="text" name="userName" placeholder="Please enter your name" [(ngModel)]="userData.userName"><br>
-    <input type="text" name="userAddress" placeholder="Please enter your address" [(ngModel)]="userData.userAddress"><br>
-    <input type="text" name="cardNumber" placeholder="Please enter your credit card number" [(ngModel)]="userData.cardNumber"><br>
-    <button name="purchase" (click)="btnClick();">Continue with your purchase</button>
+    <input #userName="ngModel" type="text" name="userName" reqiuired minlength="5" placeholder="Please enter your name"
+      [(ngModel)]="userData.userName"> *<br>
+    <input #userAddress="ngModel" type="text" name="userAddress" required minlength="10"
+      placeholder="Please enter your address" [(ngModel)]="userData.userAddress"> *<br>
+    <input #cardNumber="ngModel" type="text" name="cardNumber" required minlength="16" maxlength="16"
+      placeholder="Please enter your credit card number" [(ngModel)]="userData.cardNumber"> *<br>
+    <button type="submit" [disabled]="form.invalid">Continue with your purchase</button>
+    <br>
+    <p> * = required fields</p>
   </form>
+
+  <div *ngIf="userName.invalid && userName.dirty">
+    <div *ngIf="userName.errors?.['required']">
+      Please provide us with your name.
+    </div>
+    <div *ngIf="userName.errors?.['minlength']">
+      Your name must contain at least 5 characters.
+    </div>
+  </div>
+
+  <div *ngIf="userAddress.invalid && userAddress.dirty">
+    <div *ngIf="userAddress.errors?.['required']">
+      Please provide us with your address.
+    </div>
+    <div *ngIf="userAddress.errors?.['minlength']">
+      Your address must contain at least 10 characters.
+    </div>
+  </div>
+  
+  <div *ngIf="cardNumber.invalid && cardNumber.dirty">
+    <div *ngIf="cardNumber.errors?.['required']">
+      Please provide us with your credit card number.
+    </div>
+    <div *ngIf="cardNumber.errors?.['minlength']">
+      Your card number must contain 16 characters.
+    </div>
+    <div *ngIf="cardNumber.errors?.['maxlength']">
+      Your card number must contain 16 characters.
+    </div>
+  </div>
+
 </div>

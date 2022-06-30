@@ -35,6 +35,7 @@ addToCart(product: Product) {
 
 removeFromCart(id: number) {
   this.productList=this.productList.filter(p=>p.id !== id);
+  alert('Removed from cart!')
   return this.productList;
 }
 
