@@ -14,7 +14,7 @@ export class ProductItemDetailComponent implements OnInit {
   currentUrl: number = parseInt(window.location.href.substring(window.location.href.lastIndexOf('/')+1));
 
   NumberOfItems: Array<number>;
-  count: string;
+  count: number;
 
   constructor(private productService: ProductService, private cartService: CartService) {
     this.products = [];
@@ -24,18 +24,18 @@ export class ProductItemDetailComponent implements OnInit {
       price: 0,
       url: 'https://www.example.com',
       description: '',
-      addedItem: '0'
+      addedItem: 0
     };
 
     this.NumberOfItems = [];
-    this.count = '';
+    this.count = 0;
   }
 
   ngOnInit(): void {
 this.productService.getProducts().subscribe(res=>{
       for(let i = 0; i<res.length;i++) {
         const product = res[i];
-        product["addedItem"] = '';
+        product["addedItem"] = 0;
       }
       this.products=res;
       this.product = this.products[this.currentUrl-1];
@@ -45,12 +45,12 @@ this.productService.getProducts().subscribe(res=>{
     
   }
   changeCount(e: Event) {
-    this.count = (<HTMLSelectElement>e.target).value;
+    this.count = parseInt((<HTMLSelectElement>e.target).value);
   }
 
   addToCart() {
     this.cartService.addToCart(this.product);
-    if (this.count !== '') {
+    if (this.count !== 0) {
       this.product.addedItem = this.count;
       this.cartService.updateProduct(this.product.id-1, this.product.addedItem);
       alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);

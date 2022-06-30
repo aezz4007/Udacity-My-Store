@@ -11,17 +11,17 @@ export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() added = new EventEmitter();
   NumberOfItems: Array<number>;
-  count: string;
+  count: number;
   constructor(private cartService: CartService) {
     this.NumberOfItems = [];
-    this.count = '';
+    this.count = 0;
     this.product = {
       id: 0,
       name: '',
       price: 0,
       url: 'https://www.example.com',
       description: '',
-      addedItem: '0'
+      addedItem: 0
     };
   }
 
@@ -30,11 +30,11 @@ export class ProductItemComponent implements OnInit {
   }
 
   changeCount(e: Event) {
-    this.count = (<HTMLSelectElement>e.target).value;
+    this.count = parseInt((<HTMLSelectElement>e.target).value);
   }
 
   addToCart(product: Product) {
-    if (this.count !== '') {
+    if (this.count !== 0) {
       this.product.addedItem = this.count;
       this.added.emit(this.product);
       this.cartService.addToCart(this.product);

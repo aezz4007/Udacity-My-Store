@@ -9,36 +9,26 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  total: number;
   cartList: Product[];
-  count: string;
   constructor(private cartService: CartService, private productService: ProductService) {
+    this.total=0;
     this.cartList = [
       {id: 0,
       name: '',
       price: 0,
       url: 'https://www.example.com',
       description: '',
-      addedItem: ''
+      addedItem: 0
       }
     ];
-    this.count = '';
   }
 
   ngOnInit(): void {
     this.cartList = this.cartService.getCartItems();
   }
   
-  changeCount(e: Event, id: number) {
-    this.count = (<HTMLSelectElement>e.target).value;
-      let myIndex = this.cartList.findIndex(i=>i.id === id);
-    this.cartService.updateProduct(myIndex, this.count);
-    
-   
-
-    
-   
-  }
-  removeProduct(id: number) {
+   removeProduct(id: number) {
       this.cartList = this.cartService.removeFromCart(id);
       alert('Removed from cart');
       return this.cartList;

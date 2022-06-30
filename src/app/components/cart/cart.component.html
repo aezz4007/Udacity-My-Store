@@ -1,13 +1,19 @@
 <h1 style="text-align: center">Cart</h1>
+<br>
 <div>
-    <div *ngFor="let product of cartList">
-      <img src="{{product.url}}" />
-      <p>{{product.name}}</p>
-      <p>${{product.price}}</p>
-      <p>Amount:</p>
-      <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}" (change)="changeCount($event, product.id)">
-      <br>
-      <button (click)="removeProduct(product.id)">Remove from cart</button>
-    </div>
+  <div *ngFor="let product of cartList">
+    <img src="{{product.url}}" />
+    <p>{{product.name}}</p>
+    <p>${{product.price}}</p>
+    <p>Amount:</p>
+    <form>
+    <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}"
+      [(ngModel)]="product.addedItem">
+    <br>
+    <button (click)="removeProduct(product.id)">Remove from cart</button>
+    </form>
+  </div>
+    <form>
+      <h2 name="total">Total: {{this.total}}</h2>
+    </form>
 </div>
-
