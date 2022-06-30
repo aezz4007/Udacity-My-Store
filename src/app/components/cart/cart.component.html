@@ -17,3 +17,12 @@
       <h2 name="total">Total: {{this.total}}</h2>
     </form>
 </div>
+<div>
+  <form>
+    <h3>Please enter your information:</h3>
+    <input type="text" name="userName" placeholder="Please enter your name" [(ngModel)]="userData.userName"><br>
+    <input type="text" name="userAddress" placeholder="Please enter your address" [(ngModel)]="userData.userAddress"><br>
+    <input type="text" name="cardNumber" placeholder="Please enter your credit card number" [(ngModel)]="userData.cardNumber"><br>
+    <button name="purchase" (click)="btnClick();">Continue with your purchase</button>
+  </form>
+</div>

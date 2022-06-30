@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Product';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  userData: User;
   productList: Product[];
   total: number;
   constructor() {
     this.productList=[];
     this.total=0;
+    this.userData = 
+    {
+      id: 0,
+      userName: '',
+      userAddress: '',
+      cardNumber: ''
+    }
    }
    getCartItems() {
       return this.productList;
