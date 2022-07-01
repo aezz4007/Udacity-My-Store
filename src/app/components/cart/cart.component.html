@@ -7,8 +7,8 @@
     <p>${{product.price}}</p>
     <p>Amount:</p>
     <form>
-      <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}" [(ngModel)]="product.addedItem">
-      <br>
+      <input type="number" name="added" min="1" max="10" value="{{product.addedItem}}" [(ngModel)]="product.addedItem" (ngModelChange)="changeAdded($event)">
+      <br> 
       <button type="reset" (click)="removeProduct(product.id)">Remove from cart</button>
     </form>
   </div>

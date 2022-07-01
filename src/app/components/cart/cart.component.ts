@@ -46,10 +46,12 @@ export class CartComponent implements OnInit {
       userAddress: '',
       cardNumber: ''
     }
+    this.total=0;
   }
   
    removeProduct(id: number) {
       this.cartList = this.cartService.removeFromCart(id);
+      this.total=this.cartService.calcTotal();
       return this.cartList;
   }
  onSubmit(): void {
@@ -61,7 +63,7 @@ export class CartComponent implements OnInit {
   }
 }
 
-totalPrice() {
-  this.total = this.cartService.calcTotal();   
+changeAdded(added: number) {
+  this.total = this.cartService.calcTotal();
 }
 }

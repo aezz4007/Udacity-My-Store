@@ -46,14 +46,14 @@ removeFromCart(id: number) {
 
 updateProduct(id: number, added: number) {
     this.productList[id].addedItem = added;
-    this.calcTotal();
   }
 
   calcTotal(): number {
+    this.total=0;
     for(let i=0;i<this.productList.length;i++) {
-      this.total = this.productList[i].price * this.productList[i].addedItem;
+      let itemTotal = this.productList[i].price * this.productList[i].addedItem;
+      this.total += itemTotal;
     }
-    this.total += this.total;
     return this.total;
   }
 }
