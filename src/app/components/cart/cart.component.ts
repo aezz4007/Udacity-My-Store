@@ -15,7 +15,6 @@ export class CartComponent implements OnInit {
   total: number;
   cartList: Product[];
   constructor(private cartService: CartService, private productService: ProductService, private router: Router) {
-  
     this.userData = 
     {
       id: 0,
@@ -38,6 +37,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartList = this.cartService.getCartItems();
     this.userData=this.cartService.userData;
+    this.total=this.cartService.calcTotal();
   }
   ngOnDestroy(): void {
     this.userData={
@@ -53,12 +53,15 @@ export class CartComponent implements OnInit {
       return this.cartList;
   }
  onSubmit(): void {
-  // if(this.total !==0) {
+  if(this.total !==0) {
     
     this.router.navigateByUrl('/confirmation');
-  // } else {
-  //   alert('You haven\'t selected any item to buy');
-  // }
+  } else {
+    alert('You haven\'t selected any item to buy');
+  }
 }
 
+totalPrice() {
+  this.total = this.cartService.calcTotal();   
+}
 }

@@ -38,15 +38,12 @@ this.productService.getProducts().subscribe(res=>{
     });    
   }
     addToCart(): void {
-    if (this.product.addedItem === 0) {
-      alert(        `Please select the number of items "${this.product.name}" you want to purchase`
-      )
-    } else {
+   
       this.cartService.addToCart(this.product);
       alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
     }
     }
    
-  }
+  
 
 

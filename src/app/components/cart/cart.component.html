@@ -45,7 +45,7 @@
       Your address must contain at least 10 characters.
     </div>
   </div>
-  
+
   <div *ngIf="cardNumber.invalid && cardNumber.dirty">
     <div *ngIf="cardNumber.errors?.['required']">
       Please provide us with your credit card number.
@@ -57,5 +57,6 @@
       Your card number must contain 16 characters.
     </div>
   </div>
-
+  <br>
+  <a routerLink="" class="back-link">Back to product list</a>
 </div>

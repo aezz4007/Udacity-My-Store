@@ -10,7 +10,9 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() added = new EventEmitter();
+  cartList: Product[];
   constructor(private cartService: CartService) {
+    this.cartList = [];
     this.product = {
       id: 0,
       name: '',
@@ -22,19 +24,14 @@ export class ProductItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cartList = this.cartService.getCartItems();
   }
 
   addToCart(product: Product) {
- 
-    if (this.product.addedItem === 0) {
-
-      alert(        
-        `Please select the number of items "${this.product.name}" you want to purchase`
-      )
-    } else {
-      this.cartService.addToCart(this.product);
-      this.added.emit(this.product);
+   
+        this.cartService.addToCart(product);
+        this.added.emit(product);
+      }
     }
-    }
-  }
+  
 

@@ -9,7 +9,9 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ConfirmationComponent implements OnInit {
   userData: User;
+  total: number;
   constructor(private cartService: CartService) {
+      this.total=0;
       this.userData={
         id: 0,
         userName: '',
@@ -20,5 +22,6 @@ export class ConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.cartService.userData;
+    this.total = this.cartService.total;
   }
 }

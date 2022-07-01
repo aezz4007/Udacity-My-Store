@@ -24,15 +24,20 @@ export class CartService {
       return this.productList;
 }
 addToCart(product: Product) {
-    if (product.addedItem!==0) {
-      this.productList.push(product);
-      return this.productList;
+    const repeated = this.productList.filter(p=>p.id ===product.id);
+   
+    if (product.addedItem===0) {
+      alert(        
+        `Please select the number of items "${product.name}" you want to purchase`
+      );      
+    } else if (repeated.length!==0) {
+      alert('You have already added this item to the cart');
     } else {
-      return this.productList;
-    }
-    
-}
-
+      this.productList.push(product);
+      alert(`${product.addedItem} items of "${product.name}" were added to cart`);
+        }
+        return this.productList;
+      }
 removeFromCart(id: number) {
   this.productList=this.productList.filter(p=>p.id !== id);
   alert('Removed from cart!')
@@ -45,10 +50,10 @@ updateProduct(id: number, added: number) {
   }
 
   calcTotal(): number {
-   
     for(let i=0;i<this.productList.length;i++) {
       this.total = this.productList[i].price * this.productList[i].addedItem;
     }
+    this.total += this.total;
     return this.total;
   }
 }
