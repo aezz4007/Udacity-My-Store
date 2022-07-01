@@ -20,10 +20,10 @@ export class CartService {
       cardNumber: ''
     }
    }
-   getCartItems() {
+   getCartItems(): Product[] {
       return this.productList;
 }
-addToCart(product: Product) {
+addToCart(product: Product): Product[] {
     const repeated = this.productList.filter(p=>p.id ===product.id);
    
     if (product.addedItem===0) {
@@ -38,13 +38,13 @@ addToCart(product: Product) {
         }
         return this.productList;
       }
-removeFromCart(id: number) {
+removeFromCart(id: number): Product[] {
   this.productList=this.productList.filter(p=>p.id !== id);
   alert('Removed from cart!')
   return this.productList;
 }
 
-updateProduct(id: number, added: number) {
+updateProduct(id: number, added: number): void {
     this.productList[id].addedItem = added;
   }
 

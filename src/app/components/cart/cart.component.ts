@@ -38,6 +38,9 @@ export class CartComponent implements OnInit {
     this.cartList = this.cartService.getCartItems();
     this.userData=this.cartService.userData;
     this.total=this.cartService.calcTotal();
+    this.userData.userName='';
+    this.userData.userAddress='';
+    this.userData.cardNumber='';
   }
   ngOnDestroy(): void {
     this.userData={
@@ -49,21 +52,25 @@ export class CartComponent implements OnInit {
     this.total=0;
   }
   
-   removeProduct(id: number) {
+   removeProduct(id: number) : Product[] {
       this.cartList = this.cartService.removeFromCart(id);
       this.total=this.cartService.calcTotal();
       return this.cartList;
   }
  onSubmit(): void {
   if(this.total !==0) {
-    
+  
     this.router.navigateByUrl('/confirmation');
+    this.cartList=[];
+    this.cartService.productList=[];
+    
   } else {
     alert('You haven\'t selected any item to buy');
   }
+ 
 }
 
-changeAdded(added: number) {
+changeAdded(added: number): void {
   this.total = this.cartService.calcTotal();
 }
 }

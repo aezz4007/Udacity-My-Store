@@ -1,6 +1,7 @@
 <h1 style="text-align: center">Cart</h1>
 <br>
 <div>
+  <h2 name="total">Total: {{this.total}}</h2>
   <div *ngFor="let product of cartList">
     <img src="{{product.url}}" />
     <p>{{product.name}}</p>
@@ -12,7 +13,6 @@
       <button type="reset" (click)="removeProduct(product.id)">Remove from cart</button>
     </form>
   </div>
-  <h2 name="total">Total: {{this.total}}</h2>
 </div>
 <div>
   <form #form="ngForm" (ngSubmit)="onSubmit()">
