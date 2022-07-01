@@ -38,25 +38,19 @@ export class CartComponent implements OnInit {
     this.cartList = this.cartService.getCartItems();
     this.userData=this.cartService.userData;
     this.total=this.cartService.calcTotal();
+
+    //reset form data
     this.userData.userName='';
     this.userData.userAddress='';
     this.userData.cardNumber='';
   }
-  ngOnDestroy(): void {
-    this.userData={
-      id: 0,
-      userName: '',
-      userAddress: '',
-      cardNumber: ''
-    }
-    this.total=0;
-  }
-  
+  //remove product from cart  
    removeProduct(id: number) : Product[] {
       this.cartList = this.cartService.removeFromCart(id);
       this.total=this.cartService.calcTotal();
       return this.cartList;
   }
+  // move to confirmation page and reset cart
  onSubmit(): void {
   if(this.total !==0) {
   
@@ -69,7 +63,7 @@ export class CartComponent implements OnInit {
   }
  
 }
-
+// recalculate total on change
 changeAdded(added: number): void {
   this.total = this.cartService.calcTotal();
 }

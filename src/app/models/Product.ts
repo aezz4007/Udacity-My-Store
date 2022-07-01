@@ -1,5 +1,6 @@
+// to check for url
 import { SafeUrl } from '@angular/platform-browser';
-
+//product model
 export class Product {
   id: number;
   name: string;

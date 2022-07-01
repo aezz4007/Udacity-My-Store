@@ -11,6 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductItemDetailComponent implements OnInit {
   products: Product[];
   product: Product;
+  //get the last part of current URL of the page, containing page number
   currentUrl: number = parseInt(window.location.href.substring(window.location.href.lastIndexOf('/')+1));
 
     constructor(private productService: ProductService, private cartService: CartService) {
@@ -28,19 +29,21 @@ export class ProductItemDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //grab the product list from products service
 this.productService.getProducts().subscribe(res=>{
       for(let i = 0; i<res.length;i++) {
         const product = res[i];
         product["addedItem"] = 0;
       }
       this.products=res;
+      // the product has the same id as the page number
       this.product = this.products[this.currentUrl-1];
     });    
   }
+  // add the product to cart
     addToCart(): void {
    
       this.cartService.addToCart(this.product);
-      // alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
     }
     }
    

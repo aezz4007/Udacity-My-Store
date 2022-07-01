@@ -1,5 +1,4 @@
-import { SafeUrl } from '@angular/platform-browser';
-
+// A model for user data
 export class User {
     id: number;
     userName: string;

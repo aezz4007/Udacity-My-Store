@@ -12,6 +12,7 @@ export class ProductService {
     this.products = [];
   }
 
+  // get products from server file
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('../assets/data.json');
   }

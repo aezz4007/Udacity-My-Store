@@ -1,3 +1,4 @@
+//Navigation bar model
 export class Nav {
   navName: string;
   navURL: string;

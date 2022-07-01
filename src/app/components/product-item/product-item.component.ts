@@ -26,7 +26,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void {
     this.cartList = this.cartService.getCartItems();
   }
-
+  //add items to cart and send data to product list page
   addToCart(product: Product): void {
    
         this.cartService.addToCart(product);

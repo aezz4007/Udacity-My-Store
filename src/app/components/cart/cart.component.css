@@ -42,4 +42,6 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 64px;
+  font-size:30px;
+  color: red;
 }

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // A navigation bar which is customizable, items can be added or removed from this array
     this.navBar = [
       {
         navName: 'Product List',
