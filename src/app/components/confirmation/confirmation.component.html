@@ -1,6 +1,7 @@
-<h1>Success</h1>
-
-<p>Thank you, {{userData.userName}}!</p>
-<p>Your {{this.total}} order is confirmed!</p>
-<p>Please allow 1 - 3 business day(s) for shipping.</p>
-<a routerLink="" class="back-link">Back to product list</a>
+<div class="confirmation-items">
+<h1 class="confirmation-header">Success</h1>
+<p class="confirmation-item">Thank you, <span>{{userData.userName}}</span>!</p>
+<p class="confirmation-item">Your <span>${{this.total}}</span> order is confirmed!</p>
+<p class="confirmation-item">Please allow 1 - 3 business day(s) for shipping.</p>
+<a routerLink="" class="back-link confirmation-item">Back to product list</a>
+</div>

@@ -40,7 +40,7 @@ this.productService.getProducts().subscribe(res=>{
     addToCart(): void {
    
       this.cartService.addToCart(this.product);
-      alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
+      // alert(`${this.product.addedItem} items of "${this.product.name}" were added to cart`);
     }
     }
    

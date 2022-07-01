@@ -1,18 +1,15 @@
-.confirmation-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 8%;
+span {
+  font-weight: bold;
 }
-
 .confirmation-items {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .confirmation-header {
-  color: #33e5bc;
+  color: #e642ca;
 }
 
 .confirmation-item {
