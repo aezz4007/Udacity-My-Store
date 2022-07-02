@@ -81,7 +81,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 ## 6. License
 
-* [License](LICENSE.txt)
+* [License](LICENSE.md)
 
 ## 7. Acknowledgments
 
