@@ -1,51 +1,28 @@
-# MyStore Project Overview
+# My Store
 
-MyStore is Angular application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
+# Table of Contents
 
-## Getting Started
+1. [Getting Started](#getting-started)<br>
+    1.1. [Project Fetures](#project-features)<br>
+    1.2. [Prerequisites](#prerequisites)<br>
+    1.3. [Installing](#installing)<br>
+2. [Deployment](#deployment)<br>
+3. [Built With](#built-with)<br>
+4. [Contributing](#contributing)<br>
+5. [Author](#author)<br>
+6. [License](#license)
+7. [Acknowledgments](#acknowledgments)<br>
 
-To use these files, simply merge the folders into the root directory of your scaffolded Angular application.
+This app is a 'My Store', where the user can shop for items from a list of available products to purchase, add a selected number of items to cart, see the total price and check out. 
 
-## Project Instructions
+The user starts the journey with a landing page. It has some products. Each product is displayed with its name, price, and picture. The user can choose the number of items he/she wants to purchase and click on 'Add to Cart'. The user also can click on the picture of the product to see a description of the product, where there's also a chance for the user to choose the number of items and add the product to cart. The user can navigate to the cart by the main menu. At the cart, the user can change the number of items he/she wants to buy for each product, or completely delete the product from the cart. The total price is diplayed to the user. The user has to fill in a form and then click on a button to complete the purchase.
 
-#### Project introduction: MyStore
+This is a part of the Udacity's "Angular Cross Skilling nanodegree" program. This project is an assignment for the students to pass the Nanodegree.
+Starting code and instructions were provided by Udacity.
 
-You've completed the course! You know how to create a single-page application to offer a rich, dynamic experience on the web.
+### 1.1. Project features
 
-![MyStore shopping flow](shoppingflow.gif)
-
-To showcase your new skills, you'll build an e-commerce website – an application that allows users to view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
-
-#### How will this help my career?
-
-Many applications that you use daily include the functionality to read, write, update, and delete content provided by APIs. For example, a typical image-sharing social media application may allow you to view photos, add photos, edit them, and remove them from an album or user account. Similar to such applications, this project relies on input from users of the application. After completing this project, you'll solidify your skills in designing and creating interactive CRUD applications in the real world.
-
-#### Before you begin
-
-Throughout the course, you've learned a lot about Angular components, services, modules, services, routing, and data flow. Before you begin scaffolding the application, ask yourself:
-
-- How do I fetch and use data from an external API (or JSON data file)?
-- What does a logical hierarchy of components look like? For example, which components should be parent components, and which components should be their children components?
-- How do I collect input from the user, using controlled form elements as the "source of truth" of such data?
-- What are events in Angular, and how do I listen and respond to them?
-- What is a model, and how do I create one in TypeScript?
-- How do I pass data between parent and child components? Hint: Which decorators should be used?
-- How do I pass data between sibling or otherwise "unrelated" components?
-- How is routing set up in the templates? Likewise, how do I configure the app routing module to support this?
-
-#### Starter code
-
-The Angular CLI allows you to quickly scaffold a new application, as well as generate all necessary components, services, and modules. While you'll use the CLI to create a new application from scratch, we've provided some code and data to help you along the way:
-
-- **CSS**. The provided stylesheets are not required, but you may use the included CSS classes to help you style the application. Feel free to use your creativity and build a UI as you see fit!
-
-- `data.json`. You may fetch the list of products for your store from the API created in the previous course of this Nanodegree program. In lieu of using that data, you may also choose to have your application read the provided `data.json` file to populate your store.
-
-If you choose to use the starter code, all files can be downloaded here. To use them, just merge the folders into the root directory of your scaffolded application.
-
-#### Project features
-
-Your application reflects the same user experience as that of a real-world e-commerce website, including a(n):
+The application provides the following user experience of an e-commerce website, including a(n):
 
 - **Product list** page, which displays the available products for the user to choose and add to their cart (in various quantities)
 - **Product details** page, which displays more information about any particular product
@@ -53,21 +30,62 @@ Your application reflects the same user experience as that of a real-world e-com
 - **Checkout form**, which collects information about the user (e.g., name, address, payment details, etc.)
 - **Order confirmation page**, which shows the outcome after the user completes the checkout process (i.e., submits the checkout form)
 
-#### Development strategy
+### 1.2. Prerequisites
 
-Feel free to use this overview and the rubric specifications to create this project. You are always welcome to design and implement your own workflow, but if you are stuck or could use some inspiration, we've included the following walkthrough the help you get up and running.
+npm and angular should be installed on your system in order to install this app.
 
-1. **Scaffold your project** using the Angular CLI, and install any dependencies.
-2. **Generate the product list component**. Having the product list as the "main" page is a great start for your users.
-3. **Begin building the component logic and template** What is the function of the product list? What logic is included in the TypeScript component, and how does its HTML template function? Does this component collect any user input? If so, how does information entered by the user relate to properties in the TypeScript component?
-4. **Consider the hierarchy of components**. Which other components do you anticipate you'll need to build in this application? Which component(s) should render other components? Which components should represent a parent-child relationship? Feel free to draw out this hierarchy as a chart to help you visualize the relationships between components.
-5. **Create the TypeScript model** for products in the app. Any available product should be of this type, rather than an ordinary object.
-6. **Generate the service(s)**. Which service(s) make the most sense? For any particular service, what is its function? Hint: You may want to create a service to handle any asynchronous data.
-7. **Fetch data** from the API (or included `data.json` file) and render products in your product list.
-8. **Generate and create other components**. How do these components interact, if at all, with the component you first created? How can we facilitate sharing information between them?
-9. **Create routing** between components. Which components are linked by the router? How is the app routing module set up and configured to make sure the page doesn't reload during navigation?
-10. **Ensure that inputs are validated** in the client. For example, your checkout form needs to collect information from the user in order for them to complete the checkout process. How do you ensure that you are collecting accurate information from the user?
+### 1.3. Installing
+You need to run the following code to run the application
 
-## License
+To install <code>  npm </code> packages, type in the following, and then press enter:
 
-[License](LICENSE.txt)
+    npm install
+
+You'll need to wait for a few minutes for the npm packages to install, this depends on the memory and 
+processor speed of your computer.
+
+To install angular, run the following command
+
+npm install -g @angular/cli
+
+Now, to run your app, just write the following command, and the app will automatically open in a new tab in your default browser. Navigate to localhost/4200 and the project will load on your page.
+
+ng serve
+
+## 2. Deployment
+
+This is a simple shopping application where you can choose an item, add it to cart and complete a simple and straightforward process of purchasing the item.
+
+## 3. Built With
+
+* [Starter code from Udacity]() - You can download it here.
+* [Git](https://git-scm.com/) - Used for version control
+* [Visual Studio Code](https://code.visualstudio.com/) - A code editor
+* [Angular](https://angular.io/)
+
+## 4. Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+
+## 5. Author
+
+* **Amira Ezzeldin** 
+
+## 6. License
+
+* [License](LICENSE.txt)
+
+## 7. Acknowledgments
+
+* Special thanks to the [Udacity](https://www.udacity.com/) team for the very valuable course on Angular framework. Udacity has a very friendly environment, cooperative instructors and very rich study material. 
+
+
+

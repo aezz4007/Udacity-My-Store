@@ -36,7 +36,7 @@
           </label>
           <br><br>
           <label> Credit card number: <br>
-            <input #cardNumber="ngModel" type="text" name="cardNumber" required minlength="16" maxlength="16"
+            <input #cardNumber="ngModel" type="text"  pattern="[0-9]+" name="cardNumber" required minlength="16" maxlength="16"
               placeholder="(16-digits number)" [(ngModel)]="userData.cardNumber">
           </label>
           <br><br>
@@ -72,6 +72,9 @@
           </div>
           <div *ngIf="cardNumber.errors?.['maxlength']">
             Your card number must contain 16 characters.
+          </div>
+          <div *ngIf="cardNumber.errors?.['pattern']">
+            Your card number must contain only numbers.
           </div>
         </div>
         <br>
